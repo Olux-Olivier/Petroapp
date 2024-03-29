@@ -33,5 +33,10 @@ class Gerant extends Model
         return $this->hasMany(Pret::class);
     }
 
+    public function rapports()
+    {
+        return $this->hasMany(Rapport::class);
+    }
+
 
 }

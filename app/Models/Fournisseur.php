@@ -10,7 +10,10 @@ class Fournisseur extends Model
     use HasFactory;
 
     protected $fillable = [
-
+        'nom',
+        'email',
+        'telephone',
+        'adresse',
     ];
 
     public function cmdfournisseurs()
@@ -18,5 +21,5 @@ class Fournisseur extends Model
         return $this->hasMany(Cmdfournisseurs::class);
     }
 
-    
+
 }

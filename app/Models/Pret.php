@@ -10,6 +10,10 @@ class Pret extends Model
     use HasFactory;
 
     protected $fillable = [
+        'article',
+        'qte',
+        'datepret',
+        'datepaiement',
 
     ];
 

@@ -10,7 +10,10 @@ class Client extends Model
     use HasFactory;
 
     protected $fillable = [
-
+        'nom',
+        'typeclient',
+        'email',
+        'adresse',
     ];
 
     public function gerants()

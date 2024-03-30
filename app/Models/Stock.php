@@ -10,7 +10,8 @@ class Stock extends Model
     use HasFactory;
 
     protected $fillable=[
-
+        'qte',
+        'nalerte',
     ];
 
     public function articles()

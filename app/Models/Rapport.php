@@ -10,7 +10,10 @@ class Rapport extends Model
     use HasFactory;
 
     protected $fillable = [
-
+        'index_avant',
+        'index_apres',
+        'prix_unitaire',
+        'stock_initial',
     ];
 
     public function articles()

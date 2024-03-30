@@ -10,7 +10,11 @@ class Manager extends Model
     use HasFactory;
 
     protected $fillable=[
-
+        'nom',
+        'postnom',
+        'prenom',
+        'email',
+        'mdp'
     ];
 
     public function gerants()

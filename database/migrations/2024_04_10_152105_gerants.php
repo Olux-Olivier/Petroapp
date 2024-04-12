@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('managers', function (Blueprint $table) {
+        Schema::create('gerants', function(Blueprint $table){
             $table->id();
             $table->string('nom');
             $table->string('postnom');
@@ -22,9 +22,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::table('gerants', function (Blueprint $table){
-            $table->foreignIdFor(\App\Models\Manager::class)->constrained()->cascadeOnDelete();
-        });
+        
     }
 
     /**
@@ -33,10 +31,5 @@ return new class extends Migration
     public function down(): void
     {
         //
-        Schema::dropIfExists('managers');
-
-        Schema::create('gerants', function(Blueprint $table){
-            $table->dropForeignIdFor(\App\Models\Manager::class);
-        });
     }
 };

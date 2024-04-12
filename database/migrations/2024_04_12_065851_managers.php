@@ -22,8 +22,9 @@ return new class extends Migration
             $table->timestamps();
         });
 
+
         Schema::table('gerants', function (Blueprint $table){
-            $table->foreignIdFor(\App\Models\Manager::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\M::class)->constrained()->cascadeOnDelete();
         });
     }
 
@@ -33,10 +34,5 @@ return new class extends Migration
     public function down(): void
     {
         //
-        Schema::dropIfExists('managers');
-
-        Schema::create('gerants', function(Blueprint $table){
-            $table->dropForeignIdFor(\App\Models\Manager::class);
-        });
     }
 };

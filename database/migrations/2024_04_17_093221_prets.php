@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('prets', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('typeclient');
-            $table->string('email');
-            $table->string('adresse');
+            $table->integer('qte');
+            $table->date('datepret');
+            $table->date('datepaiement');
             $table->timestamps();
+            $table->foreignId('client_id')->constrained()->cascadeOnDelete();
             $table->foreignId('gerand_id')->constrained()->cascadeOnDelete();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
     public function down(): void
     {
         //
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('prets');
     }
 };

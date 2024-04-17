@@ -21,11 +21,7 @@ return new class extends Migration
             $table->string('mdp');
             $table->timestamps();
         });
-
-
-        Schema::table('gerants', function (Blueprint $table){
-            $table->foreignIdFor(\App\Models\M::class)->constrained()->cascadeOnDelete();
-        });
+        
     }
 
     /**
@@ -34,5 +30,7 @@ return new class extends Migration
     public function down(): void
     {
         //
+        Schema::dropIfExists('managers');
+        
     }
 };

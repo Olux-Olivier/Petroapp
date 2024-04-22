@@ -9,15 +9,21 @@
     <h2>TACHES GERANT</h2>
 
     <div>
-        <a href="">Enregistrer un client</a>
+        <a href="{{ url('/client/create') }}">Enregistrer un client</a>
     </div>
 
     <div>
-        <a href="">Passer une commande</a>
+        <a href="{{ url('/fournisseur/create') }}">Enregistrer un fournisseur</a>
     </div>
 
     <div>
-        <a href="">Enregistrer un rapport</a>
+        <a href="{{ url('/Rapports/accueil') }}">Enregistrer un rapport</a>
     </div>
+
+    <div>
+        <a href="{{ url('/Commandes/create') }}">Passer une commande</a>
+    </div>
+
+   
 </body>
 </html>

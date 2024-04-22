@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FournisseurController;
+use App\Http\Controllers\OperationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,6 +35,14 @@ Route::resource('fournisseur', FournisseurController::class)->names([
     'create' => 'fournisseur.create',
     'edit' => 'fournisseur.edit',
     'update' => 'fournisseur.update'
+]);
+
+
+Route::resource('operation', OperationController::class)->names([
+    'index' => 'operation.index',
+    'create' => 'operation.create',
+    'edit' => 'operation.edit',
+    'update' => 'operation.update'
 ]);
 
 

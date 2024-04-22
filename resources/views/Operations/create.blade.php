@@ -10,13 +10,13 @@
         <form action="" method="post">
             
             <div>
-                <label for="">Type produit</label>
+                <label for="">Type article</label>
                 <select name="" id="">
-                    <option value="">Defaul</option>
+                    <option value="">Default</option>
                     <option value="essence">Essence</option>
                     <option value="gazoile">Gazoile</option>
                 </select>
-                <input type="text">
+            
             </div>
 
             <div>

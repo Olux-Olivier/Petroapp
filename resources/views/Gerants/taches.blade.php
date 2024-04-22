@@ -17,7 +17,7 @@
     </div>
 
     <div>
-        <a href="{{ url('/Rapports/accueil') }}">Enregistrer un rapport</a>
+        <a href="{{ url('/operation/create') }}">Enregistrer une operation</a>
     </div>
 
     <div>

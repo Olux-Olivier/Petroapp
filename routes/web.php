@@ -11,6 +11,12 @@ Route::get('/', function () {
 
 ///////////////////////// NOS ROUTES
 
+//route vers login
+Route::get('/login', function (){
+    return view('Auth.login');
+})->name('login');
+
+
 Route::get('/gerant/taches', function (){
     return view('Gerants.taches');
 })->name('gerant.taches');

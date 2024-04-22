@@ -27,5 +27,9 @@ class Pompiste extends Model
         return $this->hasMany(Rapport::class);
     }
 
+    public function operations()
+    {
+        return $this->hasMany(Operation::class);
+    }
     
 }

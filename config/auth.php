@@ -65,6 +65,12 @@ return [
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
 
+            
+        'gerants' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Gerant::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

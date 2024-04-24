@@ -8,7 +8,7 @@
 <body>
     <h1>Ajout Client</h1>
     <div>
-        <form action="" method="post">
+        <form  method="post" action="/client">
             @csrf
             <label for="">Nom</label>
             <input type="text" name="nom" >

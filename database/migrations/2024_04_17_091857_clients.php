@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('adresse');
             $table->timestamps();
-            $table->foreignId('gerand_id')->constrained()->cascadeOnDelete();
+            // $table->foreignId('gerand_id')->constrained()->cascadeOnDelete()->nullable();
         });
     }
 

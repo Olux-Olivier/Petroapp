@@ -28,6 +28,7 @@
             <tbody>
             @foreach($clients as $client)
                 <tr>
+                <td>{{$client->id}}</td>
                     <td>{{$client->nom}}</td>
                     <td>{{$client->typeclient}}</td>
                     <td>{{$client->email}}</td>

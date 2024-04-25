@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('contact');
             $table->timestamps();
-            $table->foreignId('gerant_id')->constrained()->cascadeOnDelete();
+            // $table->foreignId('gerant_id')->constrained()->cascadeOnDelete();
         });
     }
 

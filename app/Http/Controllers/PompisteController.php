@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pompiste;
 use Illuminate\Http\Request;
+use App\Http\Requests\PompisteRequest;
 
 class PompisteController extends Controller
 {
@@ -12,7 +13,8 @@ class PompisteController extends Controller
      */
     public function index()
     {
-        //
+        $pompistes = Pompiste::all();
+        return view('pompistes.index', ['pompistes' => $pompistes]);
     }
 
     /**
@@ -20,15 +22,16 @@ class PompisteController extends Controller
      */
     public function create()
     {
-        //
+        return view('Pompistes.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PompisteRequest $request)
     {
-        //
+        Pompiste::create($request->validated());
+        return to_route('pompiste.index')->with('succes', "Pompiste enregistré avec succes !");
     }
 
     /**

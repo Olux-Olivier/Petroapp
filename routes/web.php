@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\OperationController;
+use App\Http\Controllers\PompisteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -43,6 +44,14 @@ Route::resource('operation', OperationController::class)->names([
     'create' => 'operation.create',
     'edit' => 'operation.edit',
     'update' => 'operation.update'
+]);
+
+
+Route::resource('pompiste', PompisteController::class)->names([
+    'index' => 'pompiste.index',
+    'create' => 'pompiste.create',
+    'edit' => 'pompiste.edit',
+    'update' => 'pompiste.update'
 ]);
 
 

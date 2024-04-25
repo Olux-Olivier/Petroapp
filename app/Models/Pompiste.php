@@ -13,7 +13,7 @@ class Pompiste extends Model
         'nom',
         'postnom',
         'prenom',
-        'email',
+        'contact',
 
     ];
 

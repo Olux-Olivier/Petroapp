@@ -6,7 +6,7 @@
     <title>Liste fournisseurs</title>
 </head>
 <body>
-<h2>Listes des fournisseurs</h2>
+    <h2>Listes des fournisseurs</h2>
     @if(session('success'))
         {{session('success')}}
     @endif

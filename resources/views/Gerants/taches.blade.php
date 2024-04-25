@@ -7,6 +7,10 @@
 </head>
 <body>
     <h2>TACHES GERANT</h2>
+    
+    <div>
+        <a href="{{ url('/pompiste/create') }}">Enregistrer un pompiste</a>
+    </div>
 
     <div>
         <a href="{{ url('/client/create') }}">Enregistrer un client</a>

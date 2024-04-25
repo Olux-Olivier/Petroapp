@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Detailcmd;
 use Illuminate\Http\Request;
 
+
 class DetailcmdController extends Controller
 {
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Fournisseur;
 use Illuminate\Http\Request;
+use App\Http\Requests\FournisseurRequest;
 
 class FournisseurController extends Controller
 {
@@ -13,6 +14,8 @@ class FournisseurController extends Controller
     public function index()
     {
         //
+        $fournisseurs = Fournisseur::all();
+        return view('Fournisseurs.index', ['fournisseurs' => $fournisseurs]);
     }
 
     /**
@@ -26,9 +29,10 @@ class FournisseurController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FournisseurRequest $request)
     {
-        //
+        Fournisseur::create($request->validated());
+        return to_route('fournisseur.index')->with('succes', "Fournisseur enregistré avec succes !");
     }
 
     /**

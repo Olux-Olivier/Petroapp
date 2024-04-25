@@ -7,7 +7,7 @@
 </head>
 <body>
    
-<h2>Listes de clients</h2>
+    <h2>Listes de clients</h2>
     @if(session('success'))
         {{session('success')}}
     @endif

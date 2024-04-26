@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('operations', function (Blueprint $table) {
             $table->id();
             $table->float('stock_initial');
-            $table->string('type_article');
+            $table->foreignId('article_id')->constrained()->cascadeOnDelete();
             $table->integer('index_avant');
             $table->integer('index_apres');
             $table->float('prix_unitaire');

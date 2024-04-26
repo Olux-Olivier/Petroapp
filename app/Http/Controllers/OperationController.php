@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Operation;
+use App\Models\Pompiste;
+use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Http\Requests\OperationRequest;
 
 class OperationController extends Controller
 {
@@ -20,15 +23,18 @@ class OperationController extends Controller
      */
     public function create()
     {
-        return view('Operations.create');
+        $pompistes = Pompiste::all();
+        $articles = Article::all();
+        return view('Operations.create', compact('pompistes', 'articles'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OperationRequest $request)
     {
-        //
+        Operation::create($request->validated());
+        return to_route('operation.index')->with('succes', "Pompiste enregistré avec succes !");
     }
 
     /**

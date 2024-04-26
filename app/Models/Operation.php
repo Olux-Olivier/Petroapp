@@ -11,10 +11,11 @@ class Operation extends Model
 
     protected $fillable = [
         'stock_initial',
-        'type_article',
+        'article_id',
         'index_avant',
         'index_apres',
-        'prix_unitaire'
+        'prix_unitaire',
+        'pompiste_id'
     ];
 
     public function pompistes()

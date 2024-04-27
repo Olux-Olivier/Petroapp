@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cmdfournisseur;
+use App\Models\Article;
+use App\Models\Fournisseur;
 use Illuminate\Http\Request;
+use App\Http\Requests\CmdfournisseurRequest;
 
 class CmdfournisseurController extends Controller
 {
@@ -20,13 +23,15 @@ class CmdfournisseurController extends Controller
      */
     public function create()
     {
-        //
+        $articles = Article::all();
+        $fournisseurs = Fournisseur::all();
+        return view('Cmdfournisseurs.create', compact('articles', 'fournisseurs'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CmdfournisseurRequest $request)
     {
         //
     }

@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\OperationController;
 use App\Http\Controllers\PompisteController;
+use App\Http\Controllers\CmdfournisseurController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -52,6 +53,13 @@ Route::resource('pompiste', PompisteController::class)->names([
     'create' => 'pompiste.create',
     'edit' => 'pompiste.edit',
     'update' => 'pompiste.update'
+]);
+
+Route::resource('cmdfournisseur', CmdfournisseurController::class)->names([
+    'index' => 'cmdfournisseur.index',
+    'create' => 'cmdfournisseur.create',
+    'edit' => 'cmdfournisseur.edit',
+    'update' => 'cmdfournisseur.update'
 ]);
 
 

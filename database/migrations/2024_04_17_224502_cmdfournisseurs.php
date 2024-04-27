@@ -14,6 +14,7 @@ return new class extends Migration
         //
         Schema::create('cmdfournisseurs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('article_id')->constrained()->cascadeOnDelete();
             $table->integer('qte');
             $table->string('email');
             $table->foreignId('fournisseur_id')->constrained()->cascadeOnDelete();

@@ -6,6 +6,15 @@
     <title>Liste des pompistes</title>
 </head>
 <body>
+    <div class="user-info"> 
+        @auth 
+            <span>Vous etes connecté en tant que <Strong>{{\Illuminate\Support\Facades\Auth::user()->name}}</Strong></span>
+        @endauth
+        @guest
+            <a href="{{ route('auth.login')}}">Se connecter</a>
+        @endguest
+
+    </div>
     <h2>Listes des pompistes</h2>
     @if(session('success'))
         {{session('success')}}

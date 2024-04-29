@@ -49,5 +49,8 @@
         </table>
         
     </div>
+    <div>
+        <a href="{{ url('/gerant/taches') }}">Retour</a>
+    </div>
 </body>
 </html>

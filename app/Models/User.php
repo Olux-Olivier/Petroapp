@@ -32,6 +32,21 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function pompistes()
+    {
+        return $this->hasMany(Pompiste::class);
+    }
+
+    public function clients()
+    {
+        return $this->hasMany(Client::class);
+    }
+
+    public function prets()
+    {
+        return $this->hasMany(Pret::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -44,4 +59,6 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    
 }

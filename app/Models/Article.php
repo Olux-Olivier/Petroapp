@@ -23,13 +23,9 @@ class Article extends Model
         return $this->hasMany(Pret::class);
     }
 
-    public function detailcmds()
+    public function cmdfournisseurs()
     {
-        return $this->hasMany(Detailcmds::class);
+        return $this->hasMany(Cmdfournisseur::class);
     }
 
-    public function rapports()
-    {
-        return $this->hasMany(Rapport::class);
-    }
 }

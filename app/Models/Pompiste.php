@@ -17,14 +17,9 @@ class Pompiste extends Model
 
     ];
 
-    public function gerants()
+    public function users()
     {
-        return $this->belongTo(Gerant::class);
-    }
-
-    public function rapports()
-    {
-        return $this->hasMany(Rapport::class);
+        return $this->belongTo(User::class);
     }
 
     public function operations()

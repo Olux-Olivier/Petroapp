@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('datepaiement');
             $table->timestamps();
             $table->foreignId('client_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('gerand_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
         });
     }
 

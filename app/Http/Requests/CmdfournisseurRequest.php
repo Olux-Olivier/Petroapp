@@ -26,9 +26,10 @@ class CmdfournisseurRequest extends FormRequest
         return [
             'article_id' => ['required','integer'],
             'qte' => ['required','integer'],
+            'prix' => ['required','float'],
             'email' => ['required','email', Rule::unique("fournisseurs")->ignore($this->route()->parameter("client"))],
             'fournisseur_id' => ['required','integer'],
-            'gerand_id' => ['required','integer'],
+            'user_id' => ['required','integer'],
         ];
     }
 }

@@ -52,5 +52,8 @@
             <input type="submit" value="Enregistrer">
         </form>
     </div>
+    <div>
+        <a href="{{ url('/gerant/taches') }}">Retour</a>
+    </div>
 </body>
 </html>

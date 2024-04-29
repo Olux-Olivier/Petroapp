@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('index_apres');
             $table->float('prix_unitaire');
             $table->foreignId('pompiste_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

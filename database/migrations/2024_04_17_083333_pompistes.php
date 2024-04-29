@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('postnom');
             $table->string('prenom');
             $table->string('contact');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
-            // $table->foreignId('gerant_id')->constrained()->cascadeOnDelete();
         });
     }
 

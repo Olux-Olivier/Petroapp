@@ -10,6 +10,9 @@ class Cmdfournisseur extends Model
     use HasFactory;
 
     protected $fillable = [
+        'qte',
+        'prix',
+        
 
     ];
 
@@ -18,8 +21,9 @@ class Cmdfournisseur extends Model
         return $this->belongTo(Fournisseur::class);
     }
 
-    public function detailcmds()
+    public function articles()
     {
-        return $this->hasMany(Detailcmd::class);
+        return $this->belongTo(Article::class);
     }
+
 }

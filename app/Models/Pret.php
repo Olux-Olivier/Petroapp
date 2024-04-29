@@ -17,9 +17,9 @@ class Pret extends Model
 
     ];
 
-    public function gerants()
+    public function users()
     {
-        return $this->belongTo(Gerant::class);
+        return $this->belongTo(Users::class);
     }
 
     public function clients()

@@ -29,6 +29,7 @@ class ClientRequest extends FormRequest
             'typeclient' => ['required','string','max:255'],
             'email' => ['required','email', Rule::unique("clients")->ignore($this->route()->parameter("client"))],
             'adresse' => ['required', 'string','max:255'],
+            'user_id' => ['required', 'integer'],
 
         ];
     }

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('typeclient');
             $table->string('email');
             $table->string('adresse');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->nullable();
             $table->timestamps();
-            // $table->foreignId('gerand_id')->constrained()->cascadeOnDelete()->nullable();
         });
     }
 

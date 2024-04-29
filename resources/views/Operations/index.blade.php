@@ -6,6 +6,11 @@
     <title>Operations journalières</title>
 </head>
 <body>
+    <a href="/operation/create">Nouvelle operation</a>
     
+
+    <div>
+        <a href="{{ url('/gerant/taches') }}">Retour</a>
+    </div>
 </body>
 </html>

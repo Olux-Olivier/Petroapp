@@ -1,0 +1,244 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: comfortaa;
+}
+html {
+    height: 100vh;
+    
+    body{
+        height: 100vh;
+        background-color: rgb(247, 247, 247);
+        .container{
+            height: 100%;
+        }
+    }
+
+}
+html body .container{
+    header {
+        height: 4em;
+        display: flex;
+        align-items: center;
+        padding: 0.8em;
+        justify-content: space-between;
+        .title{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .image{
+                height: 2.8em;
+                width: 2.8em;
+                border-radius: 50%;
+                margin-right: 0.5em;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            h3{
+                font-size: 25px;
+                color: rgb(53, 53, 53);
+            }
+        }
+        .mood{
+            height: 2em;
+            width: 2em;
+            display: flex;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            transform: rotate(-180deg);
+
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .content{
+        padding: 0.8em;
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .welcome{
+            margin-bottom: 0.8em;
+            width: 80%;
+            h4{
+                font-size: 20px;
+                color: rgb(39, 39, 39);
+            }
+            p{
+                font-size: 16px;
+                margin-top: 0.3em;
+                width: 18em;
+                color: rgb(109, 109, 109);
+            }
+        }
+        .options{
+            width: 80%;
+            margin-top: 1em;
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            grid-gap: 1.5em;
+            a{
+                text-decoration: none;
+                color: rgb(39, 39, 39);
+                padding: 0.8em;
+                transition: 0.3s ease-in-out;
+                border-radius: 8px;
+                .card{
+                    display: flex;
+                    align-items: center;
+                    .text
+                    {
+                        width: 80%;
+                        margin-left: 0.8em;
+                        h4{
+                            color: rgb(39, 39, 39);
+                            font-size: 17px;
+                        }
+                        p{
+                            color: rgb(109, 109, 109);
+                            margin-top: 0.3em;
+                            font-size: 13px;
+                        }
+                    }
+                    .img{
+                        border-radius: 50%;
+                        height: 1.8em;
+                        width: 1.8em;
+                        background-color: rgb(0, 195, 255);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        img{
+                            object-fit: cover;
+                            height: 80%;
+                            width: 80%;
+                        }
+                    }
+                }
+                &:hover{
+                    background-color: rgb(255, 255, 255);
+                    box-shadow: 0px 0px 20px #e6e6e6;
+                }
+            }
+
+        }
+
+    }
+}
+
+@media screen and (min-width : 667px) {
+    html body .container .content{
+        
+        .welcome{
+            p{
+                width: 100%;
+            }
+        }
+        .options{
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+
+}
+@media screen and (min-width : 1115px) {
+    html body .container .content{
+        margin-top: 5em;
+        .options{
+            grid-template-columns: repeat(3,1fr);
+
+        }
+    }
+
+}
+
+html .dark-mode{
+    background-color: rgb(0, 7, 17);
+    .container{
+        header{
+            .title h3{
+                color: white;
+            }
+            .menu{
+                border-color: rgb(245, 245, 245);
+                div{
+                    background-color: rgb(245, 245, 245);
+                }
+            }
+            .mood{
+                transform: rotate(0);
+            }
+        }
+        .form-container{
+            .div-form{
+                h4{
+                    color: white;
+                }
+                form{
+                    label{
+                        color: white;
+                    }
+                    input,select{
+                        background-color: black;
+                        border-color: #383838;
+                    }
+                    select{
+                        background-color: #272727;
+                        color: white;
+                    }
+                }
+            }
+            .aside-barre{
+                background-color: #021118;
+                a{
+                    color: white;
+                    .card .img svg{
+                        stroke: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+html .dark-mode{
+    .container{
+        .content{
+            .welcome{
+                h4{
+                    color: white;
+                }
+                p{
+                    color: white;
+                }
+            }
+            .options{
+                a{
+                    &:hover{
+                        background-color: #363636;
+                        box-shadow: 0px 0px 10px #272727;
+                    }
+                    .card{
+                        .img{
+                            background-color: #6e6e6e;
+                            box-shadow: 0px 0px 10px #272727;
+                        }
+                        .text{
+                            h4{
+                                color: rgb(247, 247, 247);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

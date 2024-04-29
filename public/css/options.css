@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: comfortaa;
+}
+
+html {
+  height: 100vh;
+}
+html body {
+  height: 100vh;
+  background-color: rgb(247, 247, 247);
+}
+html body .container {
+  height: 100%;
+}
+
+html body .container header {
+  height: 4em;
+  display: flex;
+  align-items: center;
+  padding: 0.8em;
+  justify-content: space-between;
+}
+html body .container header .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+html body .container header .title .image {
+  height: 2.8em;
+  width: 2.8em;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+html body .container header .title .image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+html body .container header .title h3 {
+  font-size: 25px;
+  color: rgb(53, 53, 53);
+}
+html body .container header .mood {
+  height: 2em;
+  width: 2em;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  transform: rotate(-180deg);
+}
+html body .container header .mood img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+html body .container .content {
+  padding: 0.8em;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+html body .container .content .welcome {
+  margin-bottom: 0.8em;
+  width: 80%;
+}
+html body .container .content .welcome h4 {
+  font-size: 20px;
+  color: rgb(39, 39, 39);
+}
+html body .container .content .welcome p {
+  font-size: 16px;
+  margin-top: 0.3em;
+  width: 18em;
+  color: rgb(109, 109, 109);
+}
+html body .container .content .options {
+  width: 80%;
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1.5em;
+}
+html body .container .content .options a {
+  text-decoration: none;
+  color: rgb(39, 39, 39);
+  padding: 0.8em;
+  transition: 0.3s ease-in-out;
+  border-radius: 8px;
+}
+html body .container .content .options a .card {
+  display: flex;
+  align-items: center;
+}
+html body .container .content .options a .card .text {
+  width: 80%;
+  margin-left: 0.8em;
+}
+html body .container .content .options a .card .text h4 {
+  color: rgb(39, 39, 39);
+  font-size: 17px;
+}
+html body .container .content .options a .card .text p {
+  color: rgb(109, 109, 109);
+  margin-top: 0.3em;
+  font-size: 13px;
+}
+html body .container .content .options a .card .img {
+  border-radius: 50%;
+  height: 1.8em;
+  width: 1.8em;
+  background-color: rgb(0, 195, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html body .container .content .options a .card .img img {
+  object-fit: cover;
+  height: 80%;
+  width: 80%;
+}
+html body .container .content .options a:hover {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 20px #e6e6e6;
+}
+
+@media screen and (min-width: 667px) {
+  html body .container .content .welcome p {
+    width: 100%;
+  }
+  html body .container .content .options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1115px) {
+  html body .container .content {
+    margin-top: 5em;
+  }
+  html body .container .content .options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+html .dark-mode {
+  background-color: rgb(0, 7, 17);
+}
+html .dark-mode .container header .title h3 {
+  color: white;
+}
+html .dark-mode .container header .menu {
+  border-color: rgb(245, 245, 245);
+}
+html .dark-mode .container header .menu div {
+  background-color: rgb(245, 245, 245);
+}
+html .dark-mode .container header .mood {
+  transform: rotate(0);
+}
+html .dark-mode .container .form-container .div-form h4 {
+  color: white;
+}
+html .dark-mode .container .form-container .div-form form label {
+  color: white;
+}
+html .dark-mode .container .form-container .div-form form input, html .dark-mode .container .form-container .div-form form select {
+  background-color: black;
+  border-color: #383838;
+}
+html .dark-mode .container .form-container .div-form form select {
+  background-color: #272727;
+  color: white;
+}
+html .dark-mode .container .form-container .aside-barre {
+  background-color: #021118;
+}
+html .dark-mode .container .form-container .aside-barre a {
+  color: white;
+}
+html .dark-mode .container .form-container .aside-barre a .card .img svg {
+  stroke: white;
+}
+
+html .dark-mode .container .content .welcome h4 {
+  color: white;
+}
+html .dark-mode .container .content .welcome p {
+  color: white;
+}
+html .dark-mode .container .content .options a:hover {
+  background-color: #363636;
+  box-shadow: 0px 0px 10px #272727;
+}
+html .dark-mode .container .content .options a .card .img {
+  background-color: #6e6e6e;
+  box-shadow: 0px 0px 10px #272727;
+}
+html .dark-mode .container .content .options a .card .text h4 {
+  color: rgb(247, 247, 247);
+}
+
+/*# sourceMappingURL=options.css.map */

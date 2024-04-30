@@ -3,18 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
     <title>Operations journalières</title>
 </head>
 <body>
-    <div class="user-info">
-        @auth 
-            <span>Vous etes connecté en tant que <Strong>{{\Illuminate\Support\Facades\Auth::user()->name}}</Strong></span>
-        @endauth
-        @guest
-            <a href="{{ route('auth.login')}}">Se connecter</a>
-        @endguest
-
-    </div>
     <a href="/operation/create">Nouvelle operation</a>
     
 

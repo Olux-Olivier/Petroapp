@@ -6,6 +6,7 @@ use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\OperationController;
 use App\Http\Controllers\PompisteController;
 use App\Http\Controllers\CmdfournisseurController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -45,6 +46,14 @@ Route::resource('operation', OperationController::class)->names([
     'create' => 'operation.create',
     'edit' => 'operation.edit',
     'update' => 'operation.update'
+]);
+
+
+Route::resource('article', ArticleController::class)->names([
+    'index' => 'article.index',
+    'create' => 'article.create',
+    'edit' => 'article.edit',
+    'update' => 'article.update'
 ]);
 
 

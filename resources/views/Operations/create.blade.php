@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/options.css') }}">
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
     <title>PetroApp |Enregistrer une Operation</title>
 </head>
 <body>
@@ -113,7 +116,26 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ url('#') }}">
+
+                <a href="{{ url('/article/create') }}">
+                    <div class="card">
+                        <div class="img">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-box-seam" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M12 3l8 4.5v9l-8 4.5l-8 -4.5v-9l8 -4.5" />
+                            <path d="M12 12l8 -4.5" />
+                            <path d="M8.2 9.8l7.6 -4.6" />
+                            <path d="M12 12v9" />
+                            <path d="M12 12l-8 -4.5" />
+                            </svg>
+                        </div>
+                        <div class="text">
+                            <h4>Enregistrer un article</h4>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="{{ url('/gerant/taches') }}">
                     <div class="card">
                         <div class="img">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">

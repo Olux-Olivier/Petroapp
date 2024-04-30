@@ -14,6 +14,7 @@ class Pompiste extends Model
         'postnom',
         'prenom',
         'contact',
+        'user_id',
 
     ];
 

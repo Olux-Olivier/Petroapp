@@ -14,6 +14,7 @@ class Client extends Model
         'typeclient',
         'email',
         'adresse',
+        'user_id'
     ];
 
     public function users()

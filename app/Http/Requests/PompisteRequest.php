@@ -26,6 +26,7 @@ class PompisteRequest extends FormRequest
             'postnom' => ['required','string','max:255'],
             'prenom' => ['required','string','max:255'],
             'contact' => ['required','string','max:10'],
+            'user_id' => ['required', 'integer'],
         ];
     }
 }

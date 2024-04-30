@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/options.css') }}">
 </head>
 <body>
+<<<<<<< HEAD
     <div class="container">
         <header>
             <div class="title">
@@ -19,6 +20,22 @@
                 <img src="{{ asset('img/mode-nuit.png') }}">
             <div>
         </header>
+=======
+    <div class="user-info">
+        @auth 
+            <span>Vous etes connecté en tant que <Strong>{{\Illuminate\Support\Facades\Auth::user()->name}}</Strong></span>
+        @endauth
+        @guest
+            <a href="{{ route('auth.login')}}">Se connecter</a>
+        @endguest
+
+    </div>
+    <h2>TACHES GERANT</h2>
+    
+    <div>
+        <a href="{{ url('/pompiste/create') }}">Enregistrer un pompiste</a>
+    </div>
+>>>>>>> 93e55b56bd12f935c2e8517a7cd6b2afb24585b8
 
 
         <div class="content">

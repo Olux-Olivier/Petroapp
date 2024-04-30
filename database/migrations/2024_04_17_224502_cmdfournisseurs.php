@@ -16,9 +16,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('article_id')->constrained()->cascadeOnDelete();
             $table->integer('qte');
+            $table->float('prix');
             $table->string('email');
             $table->foreignId('fournisseur_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('gerand_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
 

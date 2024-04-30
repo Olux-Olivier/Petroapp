@@ -16,9 +16,9 @@ class Client extends Model
         'adresse',
     ];
 
-    public function gerants()
+    public function users()
     {
-        return $this->belongTo(Gerant::class);
+        return $this->belongTo(Users::class);
     }
 
     public function prets()

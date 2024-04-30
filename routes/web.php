@@ -17,7 +17,7 @@ Route::get('/', function () {
 //route vers login
 Route::get('/login', function (){
     return view('Auth.login');
-})->name('login');
+})->name('auth.login');
 
 
 Route::get('/gerant/taches', function (){

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
-    <title>PetroApp | Enregistre pompiste</title>
+    <title>PetroApp |Enregistrer un pret</title>
 </head>
 <body>
     <div class="container container-form">
@@ -22,6 +23,7 @@
                 <div class="image">
                     <img src="{{ asset('img/petrole.png') }}">
                 </div>
+
                 <h3>Petro<span>App</span></h3>
             </div>
             <div class="mood">
@@ -150,7 +152,7 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="{{ url('/gerant/taches') }}">
                     <div class="card">
                         <div class="img">
@@ -170,27 +172,43 @@
             
 
             <div class="div-form">
-                <h4>Ajouter un pompiste</h4>
-                <form  method="post" action="/pompiste">
+                <h4>Ajouter un pret</h4>
+                <form  method="post" action="/operation">
                     @csrf
-                    <label for="">Nom</label>
-                    <input type="text" name="nom" >
-                    <label for="">Postnom</label>
-                    <input type="text" name="postnom">
-                    
-                    <label for="">Prénom</label>
-                    <input type="text" name="prenom">
 
-                    <label for="">Contact</label>
-                    <input type="text" name="contact">
-                    
+                    <label for="">Article à preter</label>
+                    <select name="article_id">
+                        @foreach ($articles as $article)
+                            <option value="{{ $article->id }}">{{ $article->nom }}</option>
+                        @endforeach
+                    </select>
+
+                    <label for="">Quantité en litre</label>
+                    <input type="number" name="qte">
+
+                    <label for="">Prix unitaire</label>
+                    <input type="number" name="prix_unitaire">
+
+                    <label for="">Date de paiement</label>
+                    <input type="date" name="datepaiement">
+
+                    <label for="">Etat du pret</label>
+                    <input type="text" name="etat" value="valide">
+
+                    <label for="">Nom client</label>
+                    <select name="client_id">
+                        @foreach ($clients as $client)
+                            <option value="{{ $client->id }}">{{ $client->nom }}</option>
+                        @endforeach
+                    </select>
+
                     @auth
                     <input type="text" name="user_id" value="
                     {{\Illuminate\Support\Facades\Auth::user()->id}}
                     " style="display: none;">
                     @endauth
-
-                    <input type="submit" value="Ajouter">
+                    
+                    <input type="submit" value="Enregistrer">
                 </form>
             </div>
         </div>

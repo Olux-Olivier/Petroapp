@@ -14,12 +14,15 @@ return new class extends Migration
         //
         Schema::create('prets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('article_id')->constrained()->cascadeOnDelete();
             $table->integer('qte');
-            $table->date('datepret');
+            $table->float('prix_unitaire');
             $table->date('datepaiement');
-            $table->timestamps();
+            $table->string('etat');
             $table->foreignId('client_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->timestamps();
+            
         });
     }
 

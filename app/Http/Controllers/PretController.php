@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pret;
+use App\Models\Article;
+use App\Models\Client;
 use Illuminate\Http\Request;
+use App\Http\Requests\PretRequest;
 
 class PretController extends Controller
 {
@@ -12,7 +15,8 @@ class PretController extends Controller
      */
     public function index()
     {
-        //
+        $prets = Pret::all();
+        return view('Prets.index', ['prets' => $prets]);
     }
 
     /**
@@ -20,15 +24,18 @@ class PretController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::all();
+        $articles = Article::all();
+        return view('Prets.create', compact('clients', 'articles'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PretRequest $request)
     {
-        //
+        Pret::create($request->validated());
+        return to_route('pret.index')->with('succes', "Pret enregistré avec succes !");
     }
 
     /**

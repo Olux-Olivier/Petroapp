@@ -7,6 +7,7 @@ use App\Http\Controllers\OperationController;
 use App\Http\Controllers\PompisteController;
 use App\Http\Controllers\CmdfournisseurController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PretController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -69,6 +70,13 @@ Route::resource('cmdfournisseur', CmdfournisseurController::class)->names([
     'create' => 'cmdfournisseur.create',
     'edit' => 'cmdfournisseur.edit',
     'update' => 'cmdfournisseur.update'
+]);
+
+Route::resource('pret', PretController::class)->names([
+    'index' => 'pret.index',
+    'create' => 'pret.create',
+    'edit' => 'pret.edit',
+    'update' => 'pret.update'
 ]);
 
 

@@ -15,7 +15,8 @@ class OperationController extends Controller
      */
     public function index()
     {
-        //
+        $operations = Operation::all();
+        return view('Operations.index', ['operations' => $operation]);
     }
 
     /**
@@ -34,7 +35,7 @@ class OperationController extends Controller
     public function store(OperationRequest $request)
     {
         Operation::create($request->validated());
-        return to_route('operation.index')->with('succes', "Pompiste enregistré avec succes !");
+        return to_route('operation.index')->with('succes', "Operation enregistrée avec succes !");
     }
 
     /**

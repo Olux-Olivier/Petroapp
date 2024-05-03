@@ -10,11 +10,13 @@ class Pret extends Model
     use HasFactory;
 
     protected $fillable = [
-        'article',
+        'article_id',
         'qte',
-        'datepret',
+        'prix_unitaire',
         'datepaiement',
-
+        'etat',
+        'client_id',
+        'user_id',
     ];
 
     public function users()

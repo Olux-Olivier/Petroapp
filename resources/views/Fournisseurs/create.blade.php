@@ -20,7 +20,7 @@
                     <img src="{{ asset('img/petrole.png') }}">
                 </div>
 
-                <h3>PetroApp</h3>
+                <h3>Petro<span>App</span></h3>
             </div>
             <div class="mood">
                 <img src="{{ asset('img/mode-nuit.png') }}">

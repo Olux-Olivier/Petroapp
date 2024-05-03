@@ -16,7 +16,7 @@
                 <div class="image">
                     <img src="{{ asset('img/petrole.png') }}">
                 </div>
-                <h3>PetroApp</h3>
+                <h3>Petro<span>App</span></h3>
             </div>
             <div class="mood">
                 <img src="{{ asset('img/mode-nuit.png') }}">
@@ -28,7 +28,7 @@
             <div class="welcome">
                 <h4>Hello, Mr
                 @auth  
-                <span><Strong>{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                <span><Strong>{{\Illuminate\Support\Facades\Auth::user()->name}}</span></Strong>
                 @endauth
                 </h4>
                 <p>Choisissez l'action que vous voulez faire<p>

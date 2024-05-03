@@ -41,7 +41,11 @@ html body .container header .title .image img {
 }
 html body .container header .title h3 {
   font-size: 25px;
-  color: rgb(53, 53, 53);
+  color: rgb(77, 77, 77);
+}
+html body .container header .title h3 span{
+  font-size: 25px;
+  color: rgb(255, 136, 0);
 }
 html body .container header .mood {
   height: 2em;
@@ -114,7 +118,7 @@ html body .container .content .options a .card .img {
   border-radius: 50%;
   height: 1.8em;
   width: 1.8em;
-  background-color: rgb(0, 195, 255);
+  background-color: rgb(255, 136, 0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,6 +173,7 @@ html .dark-mode .container .form-container .div-form form label {
 html .dark-mode .container .form-container .div-form form input, html .dark-mode .container .form-container .div-form form select {
   background-color: black;
   border-color: #383838;
+  color: rgb(255, 255, 255);
 }
 html .dark-mode .container .form-container .div-form form select {
   background-color: #272727;

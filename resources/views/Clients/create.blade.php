@@ -175,7 +175,7 @@
                     <label for="">ID gerant</label>
 
                     @auth
-                    <input type="number" name="user_id" value="
+                    <input type="text" name="user_id" value="
                     {{\Illuminate\Support\Facades\Auth::user()->id}}
                     ">
                     @endauth

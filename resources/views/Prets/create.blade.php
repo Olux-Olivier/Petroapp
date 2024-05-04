@@ -173,7 +173,7 @@
 
             <div class="div-form">
                 <h4>Ajouter un pret</h4>
-                <form  method="post" action="/operation">
+                <form  method="post" action="/pret">
                     @csrf
 
                     <label for="">Article à preter</label>

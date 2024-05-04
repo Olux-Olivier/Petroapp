@@ -23,8 +23,8 @@ class PretRequest extends FormRequest
     {
         return [
             'article_id' => ['required','integer'],
-            'qte' => ['required','string','max:255'],
-            'prix_unitaire' => ['required','float'],
+            'qte' => ['required','integer'],
+            'prix_unitaire' => ['required','integer'],
             'datepaiement' => ['required','date'],
             'etat' => ['required','string','max:255'],
             'client_id' => ['required','integer'],

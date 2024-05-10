@@ -1,0 +1,163 @@
+html body .container .content-body {
+  height: 90%;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+html body .container .content-body .table {
+  width: 90%;
+}
+html body .container .content-body .table h3 {
+  margin-top: 1em;
+  color: rgb(43, 43, 43);
+  font-size: 20px;
+}
+html body .container .content-body .table .div-table {
+  margin-top: 1em;
+}
+html body .container .content-body .table .div-table h4 {
+  font-weight: normal;
+  font-size: 15px;
+}
+html body .container .content-body .table .div-table .head {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+html body .container .content-body .table .div-table .head .th {
+  padding: 1em;
+}
+html body .container .content-body .table .div-table .body .ligne {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 5px;
+  margin-bottom: 0.6em;
+}
+html body .container .content-body .table .div-table .body .ligne .td {
+  padding: 1em;
+}
+html body .container .content-body .table .div-table .body .ligne .td:last-child {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 1.8em;
+  position: relative;
+}
+html body .container .content-body .table .div-table .body .ligne .td:last-child .opt {
+  height: 0.5em;
+  width: 0.5em;
+  border-radius: 50%;
+  background-color: rgb(59, 59, 59);
+  margin-right: 0.3em;
+  z-index: 1;
+}
+html body .container .content-body .table .div-table .body .ligne .td:last-child .card-options {
+  position: absolute;
+  background-color: rgb(97, 97, 97);
+  top: 2.3em;
+  border-radius: 3px;
+  height: 0;
+  padding: 0;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+html body .container .content-body .table .div-table .body .ligne .td:last-child .card-options a {
+  text-decoration: none;
+  color: rgb(243, 243, 243);
+  font-size: 13px;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  padding: 0.3em;
+  width: 100%;
+}
+html body .container .content-body .table .div-table .body .ligne .td:last-child .card-options button {
+  border: none;
+  background-color: none;
+  font-size: 12px;
+  color: rgb(243, 243, 243);
+  background-color: inherit;
+  cursor: pointer;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+html body .container .content-body .table .div-table .body .ligne .td:last-child .card-visible {
+  background-color: rgb(97, 97, 97);
+  top: 2.3em;
+  z-index: 2;
+  height: 3.4em;
+}
+html body .container .content-body .table .div-table .body .ligne .td:last-child .card-visible a {
+  visibility: visible;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+html body .container .content-body .table .div-table .body .ligne .td:last-child .card-visible a:hover {
+  background-color: white;
+  color: rgb(43, 43, 43);
+}
+html body .container .content-body .table .div-table .body .ligne .td:last-child .card-visible button {
+  text-align: center;
+  visibility: visible;
+  padding: 0.3em;
+  margin-top: 0.2em;
+  color: rgb(255, 255, 255);
+}
+html body .container .content-body .table .div-table .body .ligne .td:last-child .card-visible button:hover {
+  color: rgb(43, 43, 43);
+  background-color: white;
+}
+
+html .dark-mode .container .content-body .aside-barre {
+  background-color: #021118;
+}
+html .dark-mode .container .content-body .aside-barre a {
+  color: white;
+}
+html .dark-mode .container .content-body .aside-barre a .card .img svg {
+  stroke: white;
+}
+html .dark-mode .container .content-body .table h3 {
+  color: white;
+}
+html .dark-mode .container .content-body .table .div-table .head .th h4 {
+  color: white;
+}
+html .dark-mode .container .content-body .table .div-table .body .ligne .td h4 {
+  color: white;
+}
+html .dark-mode .container .content-body .table .div-table .body .ligne .td:last-child .card-options a {
+  color: rgb(43, 43, 43);
+}
+html .dark-mode .container .content-body .table .div-table .body .ligne .td:last-child .card-options button {
+  color: rgb(43, 43, 43);
+}
+html .dark-mode .container .content-body .table .div-table .body .ligne .td:last-child .card-visible {
+  background-color: rgb(97, 97, 97);
+}
+html .dark-mode .container .content-body .table .div-table .body .ligne .td:last-child .card-visible a {
+  visibility: visible;
+  color: rgb(255, 255, 255);
+}
+html .dark-mode .container .content-body .table .div-table .body .ligne .td:last-child .card-visible a:hover {
+  background-color: white;
+  color: rgb(43, 43, 43);
+}
+html .dark-mode .container .content-body .table .div-table .body .ligne .td:last-child .card-visible button {
+  color: rgb(255, 255, 255);
+}
+html .dark-mode .container .content-body .table .div-table .body .ligne .td:last-child .card-visible button:hover {
+  color: rgb(43, 43, 43);
+  background-color: white;
+}
+html .dark-mode .container .content-body .table .div-table .body .ligne .td:last-child .opt {
+  background-color: #e0e0e0;
+}
+
+/*# sourceMappingURL=table.css.map */

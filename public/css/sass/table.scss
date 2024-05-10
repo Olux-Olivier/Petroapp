@@ -1,0 +1,187 @@
+html body .container .content-body
+{
+    height: 90%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+html body .container .content-body .table
+{
+    width: 90%;
+    h3{
+        margin-top: 1em;
+        color: rgb(43, 43, 43);
+        font-size: 20px;
+    }
+    .div-table{
+        margin-top: 1em;
+        h4{
+            font-weight: normal;
+            font-size: 15px;
+        }
+        .head{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            .th{
+                padding: 1em;
+            }
+        }
+        .body{
+            .ligne {
+                display: grid;
+                grid-template-columns: repeat(6,1fr);
+                border: 1px solid rgb(190, 190, 190);
+                border-radius: 5px;
+                margin-bottom: 0.6em;
+                .td{
+                    padding: 1em;
+                    &:last-child{
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        padding-left: 1.8em;
+                        position: relative;
+                        .opt{
+                            height: 0.5em;
+                            width: 0.5em;
+                            border-radius: 50%;
+                            background-color: rgb(59, 59, 59);
+                            margin-right: 0.3em;
+                            z-index: 1;
+                        }
+                        .card-options{
+                            position: absolute;
+                            background-color: rgb(97, 97, 97);
+                            top: 2.3em;
+                            border-radius: 3px;
+                            height: 0;
+                            padding: 0;
+                            z-index: -1;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            transition: all 0.3s ease-in-out;
+                            a{
+                                text-decoration: none;
+                                color: rgb(243, 243, 243);
+                                font-size: 13px;
+                                visibility: hidden;
+                                transition: all 0.3s ease-in-out;
+                                padding: 0.3em;
+                                width: 100%;
+                                
+                            }
+                            button{
+                                border: none;
+                                background-color: none;
+                                font-size: 12px;
+                                color: rgb(243, 243, 243);
+                                background-color: inherit;
+                                cursor: pointer;
+                                visibility: hidden;
+                                transition: all 0.3s ease-in-out;
+                            }
+                        }
+                        .card-visible{
+                            background-color: rgb(97, 97, 97);
+                            top: 2.3em;
+                            z-index: 2;
+                            height: 3.4em;
+                            a{
+                                visibility: visible;
+                                color: rgb(255, 255, 255);
+                                text-align: center;
+                                &:hover{
+                                    background-color: white;
+                                    color: rgb(43, 43, 43);
+                                }
+                            }
+                            button{
+                                text-align: center;
+                                visibility: visible;
+                                padding: 0.3em;
+                                margin-top: 0.2em;
+                                color: rgb(255, 255, 255);
+                                &:hover{
+                                    color: rgb(43, 43, 43);
+                                    background-color: white;
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+
+html .dark-mode{
+    .container{
+        .content-body{
+            .aside-barre{
+                background-color: #021118;
+                a{
+                    color: white;
+                    .card .img svg{
+                        stroke: white;
+                    }
+                }
+            }
+            .table{
+                h3{
+                    color: white;
+                }
+                .div-table{
+                    .head .th h4{
+                        color: white;
+                    }
+                    .body .ligne .td{
+                        h4{
+                            color: white;
+                        }
+                        &:last-child{
+                            .card-options{
+                                a{
+                                    color:rgb(43, 43, 43);
+                                }
+                                button{
+                                    color: rgb(43, 43, 43);
+                                }
+                            }
+                            .card-visible{
+                                background-color: rgb(97, 97, 97);
+                                a{
+                                    visibility: visible;
+                                    color: rgb(255, 255, 255);
+                                    &:hover{
+                                        background-color: white;
+                                        color: rgb(43, 43, 43);
+                                    }
+                                }
+                                button{
+                                    color: rgb(255, 255, 255);
+                                    &:hover{
+                                        color: rgb(43, 43, 43);
+                                        background-color: white;
+                                    }
+                                    
+                                }
+                            }
+
+                            .opt{
+                                background-color: #e0e0e0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+}
+}

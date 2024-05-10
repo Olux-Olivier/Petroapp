@@ -201,6 +201,9 @@
             </div>
         </div>
     </div>
+    <a href="{{ url('/client') }}">Voir la liste</a>
+
+
     <script src="{{ asset('js/events.js') }}"></script>
     <script src="{{ asset('js/dark.js') }}"></script>
 </body>

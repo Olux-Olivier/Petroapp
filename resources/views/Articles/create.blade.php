@@ -189,6 +189,7 @@
             </div>
         </div>
     </div>
+    <a href="{{ url('/article') }}">Voir la liste</a>
     <script src="{{ asset('js/events.js') }}"></script>
     <script src="{{ asset('js/dark.js') }}"></script>
 </body>

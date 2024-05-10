@@ -16,6 +16,15 @@ class PretController extends Controller
     public function index()
     {
         $prets = Pret::all();
+
+        foreach($prets as $pret){
+            $article_prete = Article::find($pret->article_id);
+            $nom_client = Client::find($pret->client_id);
+
+            $pret->article_id = $article_prete->nom;
+            $pret->client_id = $nom_client->nom;
+        }
+
         return view('Prets.index', ['prets' => $prets]);
     }
 
@@ -60,6 +69,13 @@ class PretController extends Controller
     public function update(Request $request, Pret $pret)
     {
         //
+    }
+
+    public function valide(Request $request){
+        Pret::where('id', $request->id)
+            ->update(["etat" => "Payé"]);
+
+        return to_route('pret.index');
     }
 
     /**

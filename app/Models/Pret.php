@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Client;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pret extends Model
 {
@@ -19,18 +20,18 @@ class Pret extends Model
         'user_id',
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->belongTo(Users::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function clients()
+    public function client()
     {
-        return $this->belongTo(Client::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function articles()
     {
-        return $this->belongTo(Article::class);
+        return $this->belongsTo(Article::class);
     }
 }

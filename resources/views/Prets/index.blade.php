@@ -42,7 +42,13 @@
 
                     <td>{{$pret->datepaiement}}</td>
                     <td>{{$pret->client_id}}</td>
-                    <td>{{$pret->etat}}</td>
+                    <td>
+                    <form action="{{route('pret.valide')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$pret->id}}">
+                        <button>{{$pret->etat}}</button>
+                    </form>
+                    </td>
                     <td>
                         <a href="/pret/{{$pret->id}}/edit">Modifier</a>
                     </td>

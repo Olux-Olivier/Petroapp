@@ -76,9 +76,10 @@ Route::resource('pret', PretController::class)->names([
     'index' => 'pret.index',
     'create' => 'pret.create',
     'edit' => 'pret.edit',
-    'update' => 'pret.update'
+    'update' => 'pret.update',
 ]);
 
+Route::post('valide', [PretController::class, 'valide'])->name('pret.valide');
 
 
 

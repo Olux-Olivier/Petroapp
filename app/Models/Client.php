@@ -19,7 +19,7 @@ class Client extends Model
 
     public function users()
     {
-        return $this->belongTo(Users::class);
+        return $this->belongsTo(Users::class);
     }
 
     public function prets()

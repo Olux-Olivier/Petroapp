@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cmdfournisseur;
+use App\Models\Stock;
 use App\Models\Article;
 use App\Models\Fournisseur;
 use Illuminate\Http\Request;
+use App\Models\Cmdfournisseur;
 use App\Http\Requests\CmdfournisseurRequest;
 
 class CmdfournisseurController extends Controller
@@ -87,8 +88,39 @@ class CmdfournisseurController extends Controller
     }
 
     public function livre(Request $request){
-        Cmdfournisseur::where('id', $request->id)
-            ->update(["etat" => "livré"]);
+        //Cmdfournisseur::where('id', $request->id)
+            //->update(["etat" => "livré"]);
+        
+        $stock_article = Stock::find($request->id);
+        
+        $article_id = Cmdfournisseur::where('id', $request->id)->get();
+        $qte = $article_id[0]->qte;
+
+        if(!$stock_article){//Si l'article n'existe pas on la cree dans la table stock
+            
+            Stock::create([
+                'artilce_id' => $request->id,
+                'qte' => $qte,
+                'nalerte' => $qte
+            ]);
+            
+        }else{
+
+            $article = Stock::where("artilce_id", $article_id[0]->id)->get();
+            $qte_stock_article = $article[0]->qte;
+
+            $qte_stock_article += $qte;
+            
+            Stock::where('artilce_id',$article_id[0]->id)
+                ->update(["qte" => $qte_stock_article, "nalerte" => $qte_stock_article]);
+
+        }
+
+        // Envoi de l'email au fournisseur
+        //
+        // 
+        // 
+        
 
         return to_route('cmdfournisseur.index');
     }

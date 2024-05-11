@@ -16,7 +16,7 @@ class Article extends Model
 
     public function stocks()
     {
-        return $this->belongTo(Stock::class);
+        return $this->belongsTo(Stock::class);
     }
 
     public function prets()

@@ -21,12 +21,12 @@ class Operation extends Model
 
     public function pompistes()
     {
-        return $this->belongTo(Pompiste::class);
+        return $this->belongsTo(Pompiste::class);
     }
 
     public function users()
     {
-        return $this->belongTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
 }

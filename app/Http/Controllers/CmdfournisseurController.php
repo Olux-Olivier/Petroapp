@@ -15,7 +15,20 @@ class CmdfournisseurController extends Controller
      */
     public function index()
     {
-        //
+        $cmdfournisseurs = Cmdfournisseur::all();
+
+        foreach($cmdfournisseurs as $cmdfournisseur){
+
+            $nom_article = Article::find($cmdfournisseur->article_id);
+            $nom_fournisseur = Fournisseur::find($cmdfournisseur->fournisseur_id);
+
+            
+            $cmdfournisseur->article_id = $nom_article->nom;
+            $cmdfournisseur->fournisseur_id = $nom_fournisseur->nom;
+        }
+
+        
+        return view('Cmdfournisseurs.index', ['cmdfournisseurs' => $cmdfournisseurs]);
     }
 
     /**
@@ -33,7 +46,12 @@ class CmdfournisseurController extends Controller
      */
     public function store(CmdfournisseurRequest $request)
     {
-        //
+        Cmdfournisseur::create($request->validated());
+        // 
+        // 
+        // 
+        
+        return to_route('cmdfournisseur.index')->with('succes', "commande passée avec succés !");
     }
 
     /**
@@ -66,5 +84,12 @@ class CmdfournisseurController extends Controller
     public function destroy(Cmdfournisseur $cmdfournisseur)
     {
         //
+    }
+
+    public function livre(Request $request){
+        Cmdfournisseur::where('id', $request->id)
+            ->update(["etat" => "livré"]);
+
+        return to_route('cmdfournisseur.index');
     }
 }

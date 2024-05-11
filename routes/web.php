@@ -81,7 +81,7 @@ Route::resource('pret', PretController::class)->names([
 
 Route::post('valide', [PretController::class, 'valide'])->name('pret.valide');
 
-
+Route::post('livre', [CmdfournisseurController::class, 'livre'])->name('cmdfournisseur.livre');
 
 ////////////////////////// NOS ROUTES
 

@@ -105,22 +105,23 @@ class CmdfournisseurController extends Controller
             ]);
             
         }else{
+            if($article_id[0]->etat != "livré"){
 
-            $article = Stock::where("artilce_id", $article_id[0]->id)->get();
-            $qte_stock_article = $article[0]->qte;
+                $article = Stock::where("artilce_id", $article_id[0]->id)->get();
+                $qte_stock_article = $article[0]->qte;
 
-            $qte_stock_article += $qte;
-            
-            Stock::where('artilce_id',$article_id[0]->id)
-                ->update(["qte" => $qte_stock_article, "nalerte" => $qte_stock_article]);
-
+                $qte_stock_article += $qte;
+                
+                Stock::where('artilce_id',$article_id[0]->id)
+                    ->update(["qte" => $qte_stock_article, "nalerte" => $qte_stock_article]);
+            }
         }
 
         // Envoi de l'email au fournisseur
         //
         // 
         // 
-        
+
 
         return to_route('cmdfournisseur.index');
     }

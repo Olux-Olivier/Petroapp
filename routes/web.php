@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::get('/login', function (){
     return view('Auth.login');
 })->name('auth.login');
-
+;
 
 Route::get('/gerant/taches', function (){
     return view('Gerants.taches');

@@ -28,7 +28,7 @@ class OperationController extends Controller
         $articles = Article::all();
         return view('Operations.create', compact('pompistes', 'articles'));
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */

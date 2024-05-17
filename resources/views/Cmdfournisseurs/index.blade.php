@@ -42,6 +42,7 @@
                     <td>
                     <form action="{{route('cmdfournisseur.livre')}}" method="post">
                         @csrf
+                        <input type="hidden" name="id_article" value="{{$cmdfournisseur->article}}">
                         <input type="hidden" name="id" value="{{$cmdfournisseur->id}}">
                         <button>{{$cmdfournisseur->etat}}</button>
                     </form>

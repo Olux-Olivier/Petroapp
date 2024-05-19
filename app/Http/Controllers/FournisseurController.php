@@ -48,15 +48,21 @@ class FournisseurController extends Controller
      */
     public function edit(Fournisseur $fournisseur)
     {
-        //
+        return view('fournisseurs.edit',[
+            'fournisseur' => $fournisseur
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Fournisseur $fournisseur)
+    public function update(FournisseurRequest $request, Fournisseur $fournisseur)
     {
-        //
+        $fournisseur->update($request->validated());
+        
+        return to_route('fournisseur.index')->with([
+            'success' => 'fournisseur modifié avec succes!'
+        ]);
     }
 
     /**
@@ -64,6 +70,9 @@ class FournisseurController extends Controller
      */
     public function destroy(Fournisseur $fournisseur)
     {
-        //
+        $fournisseur->delete();
+        return to_route('fournisseur.index')->with([
+            'success' => 'fournisseur supprimé avec succés'
+        ]);
     }
 }

@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="{{ asset('css/options.css') }}">
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
-    <title>PetroApp | Passer commande</title>
+    <title>PetroApp | Modifier fournisseur</title>
 </head>
 <body>
-<div class="container container-form">
+    <div class="container container-form">
         <header>
             <div class="title">
                 <div class="menu">
@@ -91,7 +91,7 @@
                             <path d="M7 7h3v10h-3z" />
                             <path d="M14 7h3v6h-3z" />
                             </svg>
-                        </div> 
+                        </div>
                         <div class="text">
                             <h4>Enregistrer une operation</h4>
                         </div>
@@ -171,56 +171,32 @@
             
 
             <div class="div-form">
-                <h4>Passer une commande</h4>
-                <form  method="post" action="/cmdfournisseur">
+                <h4>Modifier un fournisseur</h4>
+                <form  action="{{route('fournisseur.update', $fournisseur)}}" method='post'>
                     @csrf
-                   
-                    <label for="">Nom article</label>
-                    <select name="article_id">
-                        @foreach ($articles as $article)
-                            <option value="{{ $article->id }}">{{ $article->nom }}</option>
-                        @endforeach
-                    </select>
+                    @method('put')
+                    <label for="">Nom</label>
+                    <input type="text" name="nom" value="{{$fournisseur->nom}}">
 
-                    <label for="">Quantité en litre</label>
-                    <input type="number" name="qte">
 
-                    <label for="">Prix unitaire</label>
-                    <input type="number" name="prix">
+                    <label for="">Email</label>
+                    <input type="email" name="email" value="{{$fournisseur->email}}">
+                    
+                    <label for="">Téléphone</label>
+                    <input type="text" name="numerotel" value="{{$fournisseur->numerotel}}">
 
-                    <label for="">Email fournisseur</label>
-                    <select name="email">
-                        @foreach ($fournisseurs as $fournisseur)
-                            <option value="{{ $fournisseur->email }}">{{ $fournisseur->email }}</option>
-                        @endforeach
-                    </select>
-
-                    <label for="">Nom fournisseur</label>
-                    <select name="fournisseur_id">
-                        @foreach ($fournisseurs as $fournisseur)
-                            <option value="{{ $fournisseur->id }}">{{ $fournisseur->nom }}</option>
-                        @endforeach
-                    </select>
-
-                    <label for="">Etat commande</label>
-                    <input type="text" name="etat" value="En cours">
-
-                    @auth
-                    <input type="text" name="user_id" value="
-                    {{\Illuminate\Support\Facades\Auth::user()->id}}
-                    " style="display: none;">
-                    @endauth
+                    <label for="">Adresse</label>
+                    <input type="text" name="adresse" value="{{$fournisseur->adresse}}">
 
                     <input type="submit" value="Valider">
                 </form>
             </div>
         </div>
     </div>
-    <a href="{{ url('/cmdfournisseur') }}">Voir la liste</a>
+    <a href="{{ url('/fournisseur') }}">Voir la liste</a>
 
 
     <script src="{{ asset('js/events.js') }}"></script>
     <script src="{{ asset('js/dark.js') }}"></script>
-</body>
 </body>
 </html>

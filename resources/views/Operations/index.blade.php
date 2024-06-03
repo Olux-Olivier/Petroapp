@@ -8,10 +8,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
     <title>Operations journalières</title>
 </head>
-<body>
-    <a href="/operation/create">Nouvelle operation</a>
-    
+<body>  
+    <h2>Listes des fournisseurs</h2>
+    @if(session('success'))
+        {{session('success')}}
+    @endif
+    <a href="/operation/create">Nouvelle opeartion</a>
+    <div>
 
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>nom fournisseur</th>
+                    <th>eamil</th>
+                    <th>telephone</th>
+                    <th>adresse</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            @foreach($fournisseurs as $fournisseur)
+                <tr>
+                    <td>{{$fournisseur->id}}</td>
+                    <td>{{$fournisseur->nom}}</td>
+                    <td>{{$fournisseur->email}}</td>
+                    <td>{{$fournisseur->numerotel}}</td>
+                    <td>{{$fournisseur->adresse}}</td>
+                    <td>
+                        <a href="/fournisseur/{{$fournisseur->id}}/edit">Modifier</a>
+                    </td>
+
+                    <td>
+                        <form action="{{route('fournisseur.destroy',$fournisseur)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+        
+    </div>
     <div>
         <a href="{{ url('/gerant/taches') }}">Retour</a>
     </div>

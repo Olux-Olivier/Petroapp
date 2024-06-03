@@ -16,7 +16,7 @@ class OperationController extends Controller
     public function index()
     {
         $operations = Operation::all();
-        return view('Operations.index', ['operations' => $operation]);
+        return view('Operations.index', ['operations' => $operations]);
     }
 
     /**
@@ -51,15 +51,21 @@ class OperationController extends Controller
      */
     public function edit(Operation $operation)
     {
-        //
+        return view('operations.edit',[
+            'operation' => $operation
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Operation $operation)
+    public function update(OperationRequest $request, Operation $operation)
     {
-        //
+        $operation->update($request->validated());
+        
+        return to_route('operation.index')->with([
+            'success' => 'Operation modifiée avec succes!'
+        ]);
     }
 
     /**
@@ -67,6 +73,9 @@ class OperationController extends Controller
      */
     public function destroy(Operation $operation)
     {
-        //
+        $operation->delete();
+        return to_route('operation.index')->with([
+            'success' => 'Operation supprimée avec succés'
+        ]);
     }
 }

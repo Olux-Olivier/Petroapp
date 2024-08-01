@@ -202,7 +202,12 @@
                             <option value="{{ $pompiste->id }}">{{ $pompiste->nom }}</option>
                         @endforeach
                     </select>
-
+                    
+                    @auth
+                    <input type="text" name="user_id" value="
+                    {{\Illuminate\Support\Facades\Auth::user()->id}}
+                    " style="display: none;">
+                    @endauth
                     
                     <input type="submit" value="Enregistrer">
                 </form>

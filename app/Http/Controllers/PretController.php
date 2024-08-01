@@ -72,9 +72,10 @@ class PretController extends Controller
     }
 
     public function valide(Request $request){
+        
         Pret::where('id', $request->id)
             ->update(["etat" => "Payé"]);
-
+        
         return to_route('pret.index');
     }
 
@@ -83,6 +84,9 @@ class PretController extends Controller
      */
     public function destroy(Pret $pret)
     {
-        //
+        $pret->delete();
+        return to_route('pret.index')->with([
+            'success' => 'Pret supprimé avec succés'
+        ]);
     }
 }

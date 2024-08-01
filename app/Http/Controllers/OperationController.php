@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Operation;
-use App\Models\Pompiste;
+use App\Models\Stock;
 use App\Models\Article;
+use App\Models\Pompiste;
+use App\Models\Operation;
 use Illuminate\Http\Request;
 use App\Http\Requests\OperationRequest;
 
@@ -16,7 +17,22 @@ class OperationController extends Controller
     public function index()
     {
         $operations = Operation::all();
-        return view('Operations.index', ['operations' => $operations]);
+        $stock_essence = Stock::where('artilce_id',1)->get(['qte']);
+        $stock_gazoil = Stock::where('artilce_id',2)->get(['qte']);
+
+        foreach($operations as $operation){
+            $nom_article = Article::find($operation->article_id);
+            $nom_pompiste = Pompiste::find($operation->pompiste_id);
+
+            $operation->article_id = $nom_article->nom;
+            $operation->pompiste_id = $nom_pompiste->nom .' '. $nom_pompiste->postnom ;
+        }
+
+        return view('Operations.index', [
+            'operations' => $operations,
+            'stock_essence' => $stock_essence,
+            'stock_gazoil'=> $stock_gazoil
+        ]);
     }
 
     /**
@@ -26,6 +42,7 @@ class OperationController extends Controller
     {
         $pompistes = Pompiste::all();
         $articles = Article::all();
+        
         return view('Operations.create', compact('pompistes', 'articles'));
     }
     
@@ -34,7 +51,19 @@ class OperationController extends Controller
      */
     public function store(OperationRequest $request)
     {
+        /*
+        if($request->index_avant >  $request->index_apres){
+            return to
+        }*/
+        
+        $qte_vendu = $request->index_apres - $request->index_avant;
+        $qte_stock = Stock::where('artilce_id',$request->article_id)->get(['qte']);
+        
+        Stock::where('artilce_id',$request->article_id)
+        ->update(['qte' => $qte_stock[0]->qte - $qte_vendu]);
+
         Operation::create($request->validated());
+        
         return to_route('operation.index')->with('succes', "Operation enregistrée avec succes !");
     }
 

@@ -43,7 +43,9 @@
                     <form action="{{route('cmdfournisseur.livre')}}" method="post">
                         @csrf
                         <input type="hidden" name="id_article" value="{{$cmdfournisseur->article}}">
+                        <input type="hidden" name="qte" value="{{$cmdfournisseur->qte}}">
                         <input type="hidden" name="id" value="{{$cmdfournisseur->id}}">
+                        <input type="hidden" name="etat" value="{{$cmdfournisseur->etat}}">
                         <button>{{$cmdfournisseur->etat}}</button>
                     </form>
                     </td>
@@ -66,6 +68,21 @@
     </div>
     <div>
         <a href="{{ url('/gerant/taches') }}">Retour</a>
+    </div>
+
+    <div>
+        @php
+            if(empty($stock_essence)){
+                $stock_essence = 0;
+            }
+            if(empty($stock_gazoil)){
+                $stock_gazoil = 0;
+            }
+        @endphp
+
+        Stock essence : {{$stock_essence}} <br>
+        Stock gazoil : {{$stock_gazoil}}
+
     </div>
 </body>
 </html>

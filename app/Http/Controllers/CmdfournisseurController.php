@@ -19,7 +19,9 @@ class CmdfournisseurController extends Controller
     public function index()
     {
         $cmdfournisseurs = Cmdfournisseur::all();
-        
+        $stock_essence = Stock::where('artilce_id',1)->get(['qte']);
+        $stock_gazoil = Stock::where('artilce_id',2)->get(['qte']);
+
         foreach($cmdfournisseurs as $cmdfournisseur){
 
             $nom_article = Article::find($cmdfournisseur->article_id);
@@ -31,7 +33,12 @@ class CmdfournisseurController extends Controller
             
         }
         
-        return view('Cmdfournisseurs.index', ['cmdfournisseurs' => $cmdfournisseurs]);
+        
+        return view('Cmdfournisseurs.index', [
+            'cmdfournisseurs' => $cmdfournisseurs,
+            'stock_essence' => $stock_essence,
+            'stock_gazoil'=> $stock_gazoil
+        ]);
     }
 
     /**
@@ -99,8 +106,41 @@ class CmdfournisseurController extends Controller
     }
 
     public function livre(Request $request){
-         // changement d'etat de la commande
-        return to_route('cmdfournisseur.index');
+        if($request->etat == "livrée"){
+            return to_route('cmdfournisseur.index');
+        }else{
+            // Si article n'existe pas on le cree 
+            $articles = Stock::where('artilce_id', $request->id_article)->get();
+            $existe = false;
+
+            foreach($articles as $article){
+                if($article->artilce_id == $request->id_article){
+                    $existe = true;
+                }else{
+                    $existe = false;
+                }
+            }
+
+            if(!$existe){
+                Stock::create([
+                    'artilce_id' => $request->id_article,
+                    'qte' => $request->qte,
+                    'nalerte' => 'alerte'
+                ]);
+                // mettre a jour etat cmd
+                Cmdfournisseur::where('id', $request->id)
+                ->update(["etat" => "livrée"]);
+            }else{
+                $qte = Stock::where('artilce_id', $request->id_article)->get(['qte']);
+                Stock::where('artilce_id', $request->id_article)
+                ->update(['qte' => $qte[0]->qte + $request->qte]);
+
+                Cmdfournisseur::where('id', $request->id)
+                ->update(["etat" => "livrée"]);
+            }
+            // Sinon on le met  a jour
+            return to_route('cmdfournisseur.index');
+        }
     }
 
     public function sendmail($mailFournisseur, $nomFournisseur, $articleCommander, $quantiteCommander, $prix){
@@ -114,7 +154,7 @@ class CmdfournisseurController extends Controller
             $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
             $mail->Username   = 'olivierkasongo539@gmail.com';                     //SMTP username
-            $mail->Password   = 'busnaihdixhkpmyg';                               //SMTP password
+            $mail->Password   = 'xyvtpkjayhvbuwbi';                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 

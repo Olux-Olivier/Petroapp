@@ -9,7 +9,7 @@
     <title>Operations journalières</title>
 </head>
 <body>  
-    <h2>Listes des fournisseurs</h2>
+    <h2>Listes des operations</h2>
     @if(session('success'))
         {{session('success')}}
     @endif
@@ -19,28 +19,40 @@
         <table>
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>nom fournisseur</th>
-                    <th>eamil</th>
-                    <th>telephone</th>
-                    <th>adresse</th>
+                    <th>Initial</th>
+                    <th>Article</th>
+                    <th>Index-Avant</th>
+                    <th>Index-Apres</th>
+                    <th>Qte-vendue</th>
+                    <th>Prix unitaire</th>
+                    <th>Prix Total</th>
+                    <th>Pompiste</th>
                 </tr>
             </thead>
 
             <tbody>
-            @foreach($fournisseurs as $fournisseur)
+            @foreach($operations as $operation)
                 <tr>
-                    <td>{{$fournisseur->id}}</td>
-                    <td>{{$fournisseur->nom}}</td>
-                    <td>{{$fournisseur->email}}</td>
-                    <td>{{$fournisseur->numerotel}}</td>
-                    <td>{{$fournisseur->adresse}}</td>
+                    <td>{{$operation->stock_initial}}</td>
+                    <td>{{$operation->article_id}}</td>
+                    <td>{{$operation->index_avant}}</td>
+                    <td>{{$operation->index_apres}}</td>
+                    @php
+                        $qte_vendue = $operation->index_apres-$operation->index_avant;
+                    @endphp
+                    <td>{{$qte_vendue}} L</td>
+                    <td>{{$operation->prix_unitaire}} CDF</td>
+                    @php
+                        $prix_total = $operation->prix_unitaire * $qte_vendue;
+                    @endphp
+                    <td>{{$prix_total}} CDF</td>
+                    <td>{{$operation->pompiste_id}}</td>
                     <td>
-                        <a href="/fournisseur/{{$fournisseur->id}}/edit">Modifier</a>
+                        <a href="/operation/{{$operation->id}}/edit">Modifier</a>
                     </td>
 
                     <td>
-                        <form action="{{route('fournisseur.destroy',$fournisseur)}}" method="post">
+                        <form action="{{route('operation.destroy',$operation)}}" method="post">
                             @csrf
                             @method('delete')
                             <button type="submit">Supprimer</button>
@@ -54,6 +66,20 @@
     </div>
     <div>
         <a href="{{ url('/gerant/taches') }}">Retour</a>
+    </div>
+    <div>
+        @php
+            if(empty($stock_essence)){
+                $stock_essence = 0;
+            }
+            if(empty($stock_gazoil)){
+                $stock_gazoil = 0;
+            }
+        @endphp
+
+        Stock essence : {{$stock_essence}} <br>
+        Stock gazoil : {{$stock_gazoil}}
+
     </div>
 </body>
 </html>

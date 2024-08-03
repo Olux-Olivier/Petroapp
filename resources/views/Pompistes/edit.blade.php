@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="{{ asset('css/options.css') }}">
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
-    <title>PetroApp | Passer commande</title>
+    <title>PetroApp | Modifier pompiste</title>
 </head>
 <body>
-<div class="container container-form">
+    <div class="container container-form">
         <header>
             <div class="title">
                 <div class="menu">
@@ -22,7 +22,6 @@
                 <div class="image">
                     <img src="{{ asset('img/petrole.png') }}">
                 </div>
-
                 <h3>Petro<span>App</span></h3>
             </div>
             <div class="mood">
@@ -91,7 +90,7 @@
                             <path d="M7 7h3v10h-3z" />
                             <path d="M14 7h3v6h-3z" />
                             </svg>
-                        </div> 
+                        </div>
                         <div class="text">
                             <h4>Enregistrer une operation</h4>
                         </div>
@@ -151,7 +150,7 @@
                         </div>
                     </div>
                 </a>
-
+                
                 <a href="{{ url('/gerant/taches') }}">
                     <div class="card">
                         <div class="img">
@@ -171,40 +170,21 @@
             
 
             <div class="div-form">
-                <h4>Passer une commande</h4>
-                <form  method="post" action="/cmdfournisseur">
-                    @csrf
-                   
-                    <label for="">Nom article</label>
-                    <select name="article_id">
-                        @foreach ($articles as $article)
-                            <option value="{{ $article->id }}">{{ $article->nom }}</option>
-                        @endforeach
-                    </select>
+                <h4>Modifier un pompiste</h4>
+                <form  action="{{route('pompiste.update', $pompiste)}}" method='post'>
+                    @csrf 
+                    @method('put')
+                    <label for="">Nom</label>
+                    <input type="text" name="nom" value="{{$pompiste->nom}}">
+                    <label for="">Postnom</label>
+                    <input type="text" name="postnom" value="{{$pompiste->postnom}}">
+                    
+                    <label for="">Prénom</label>
+                    <input type="text" name="prenom" value="{{$pompiste->prenom}}">
 
-                    <label for="">Quantité en litre</label>
-                    <input type="number" name="qte">
-
-                    <label for="">Prix unitaire</label>
-                    <input type="number" name="prix">
-
-                    <label for="">Email fournisseur</label>
-                    <select name="email">
-                        @foreach ($fournisseurs as $fournisseur)
-                            <option value="{{ $fournisseur->email }}">{{ $fournisseur->email }}</option>
-                        @endforeach
-                    </select>
-
-                    <label for="">Nom fournisseur</label>
-                    <select name="fournisseur_id">
-                        @foreach ($fournisseurs as $fournisseur)
-                            <option value="{{ $fournisseur->id }}">{{ $fournisseur->nom }}</option>
-                        @endforeach
-                    </select>
-
-                    <label for="">Etat commande</label>
-                    <input type="text" name="etat" value="En cours">
-
+                    <label for="">Contact</label>
+                    <input type="text" name="contact" value="{{$pompiste->contact}}">
+                    
                     @auth
                     <input type="text" name="user_id" value="
                     {{\Illuminate\Support\Facades\Auth::user()->id}}
@@ -216,11 +196,10 @@
             </div>
         </div>
     </div>
-    <a href="{{ url('/cmdfournisseur') }}">Voir la liste</a>
+    <a href="{{ url('/pompiste') }}">Voir la liste</a>
 
 
     <script src="{{ asset('js/events.js') }}"></script>
     <script src="{{ asset('js/dark.js') }}"></script>
-</body>
 </body>
 </html>

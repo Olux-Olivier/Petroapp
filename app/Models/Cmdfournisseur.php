@@ -15,17 +15,18 @@ class Cmdfournisseur extends Model
         'prix',
         'email',
         'fournisseur_id',
+        'etat',
         'user_id',
     ];
 
     public function fournisseurs()
     {
-        return $this->belongTo(Fournisseur::class);
+        return $this->belongsTo(Fournisseur::class);
     }
 
     public function articles()
     {
-        return $this->belongTo(Article::class);
+        return $this->belongsTo(Article::class);
     }
 
 }

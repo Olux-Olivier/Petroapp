@@ -16,7 +16,6 @@
         <table>
             <thead>
                 <tr>
-                    <th>id</th>
                     <th>article preté</th>
                     <th>Quantite</th>
                     <th>prix unitaire</th>
@@ -28,17 +27,16 @@
             </thead>
 
             <tbody>
-            @foreach($prets as $pret)
+            @forelse($prets as $pret)
                 <tr>
-                    <td>{{$pret->id}}</td>
                     <td>{{$pret->article_id}}</td>
-                    <td>{{$pret->qte}}</td>
-                    <td>{{$pret->prix_unitaire}}</td>
+                    <td>{{$pret->qte}} Litres</td>
+                    <td>{{$pret->prix_unitaire}} CDF</td>
                     
                     @php
                         $prix_total = $pret->prix_unitaire * $pret->qte;
                     @endphp
-                    <td>{{ $prix_total }}</td>
+                    <td>{{ $prix_total }} CDF</td>
 
                     <td>{{$pret->datepaiement}}</td>
                     <td>{{$pret->client_id}}</td>
@@ -61,7 +59,9 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <p>Aucun enregistrement !</p>
+            @endforelse
             </tbody>
         </table>
         

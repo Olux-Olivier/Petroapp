@@ -99,7 +99,7 @@
                     </div>
                 </a>
 
-                <a href="{{ url('/Commandes/create') }}">
+                <a href="{{ url('/cmdfournisseur/create') }}">
                     <div class="card">
                         <div class="img">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-box-seam" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">

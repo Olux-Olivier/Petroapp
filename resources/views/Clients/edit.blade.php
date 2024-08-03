@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/options.css') }}">
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/table.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
-    <title>PetroApp | Enregistre pompiste</title>
+    <title>PetroApp | Modifier client</title>
 </head>
 <body>
     <div class="container container-form">
@@ -23,13 +22,14 @@
                 <div class="image">
                     <img src="{{ asset('img/petrole.png') }}">
                 </div>
+
                 <h3>Petro<span>App</span></h3>
             </div>
             <div class="mood">
                 <img src="{{ asset('img/mode-nuit.png') }}">
             <div>
         </header>
-        <div class="content-body">
+        <div class="form-container">
             <div class="aside-barre">
                 <a href="{{ url('/pompiste/create') }}">
                     <div class="card">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </a>
-
+                
                 <a href="{{ url('/client/create') }}">
                     <div class="card">
                         <div class="img">
@@ -98,7 +98,7 @@
                     </div>
                 </a>
 
-                <a href="{{ url('/Commandes/create') }}">
+                <a href="{{ url('/cmdfournisseur/create') }}">
                     <div class="card">
                         <div class="img">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-box-seam" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -168,50 +168,44 @@
                     </div>
                 </a>
             </div>
+            
 
-           <div class="table" cellpadding="0">
-                <h3>Liste des clients</h3>
-                <div class="div-table">
-                    <div class="head">
-                        <div class="th"><h4>id</h4></div>
-                        <div class="th"><h4>Nom client</h4></div>
-                        <div class="th"><h4>Type client</h4></div>
-                        <div class="th"><h4>Email</h4></div>
-                        <div class="th"><h4>Adresse</h4></div>
-                        <div class="th"><h4>Actions</h4></div>
-                    </div>
-                    <div class="body">
-                        @foreach($clients as $client)
-                            <div class="ligne">
-                                <div class="td"><h4>{{$client->id}}</h4></div>
-                                <div class="td"><h4>{{$client->nom}}</h4></div>
-                                <div class="td"><h4>{{$client->typeclient}}</h4></div>
-                                <div class="td"><h4>{{$client->email}}</h4></div>
-                                <div class="td"><h4>{{$client->adresse}}</h4></div>
+            <div class="div-form">
+                <h4>Modifier un client</h4>
+                <form  action="{{route('client.update', $client)}}" method='post'>
+                    @csrf
+                    @method('put')
+                    <label for="">Nom</label>
+                    <input type="text" name="nom" value="{{$client->nom}}">
+
+                    <label for="">Type client</label>
+                    <select name="typeclient" id="">
+                            <option value="entreprise">Entreprise</option>
+                            <option value="particulier">Particulier</option>
+                    </select>
+
+                    <label for="">Email</label>
+                    <input type="email" name="email" value="{{$client->email}}">
+
+                    <label for="">Adresse</label>
+                    <input type="text" name="adresse" value="{{$client->adresse}}">
 
 
-                                <div class="td options">
-                                    <div class="opt"></div>
-                                    <div class="opt"></div>
-                                    <div class="opt"></div>
-                                    <div class="card-options">
-                                        <a href="/client/{{$client->id}}/edit">Modifier</a>
-                                        <form action="{{route('client.destroy',$client)}}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit">Supprimer</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-           </div>
+                    @auth
+                    <input type="text" name="user_id" value="
+                    {{\Illuminate\Support\Facades\Auth::user()->id}}
+                    " style="display: none;">
+                    @endauth
+
+                    <input type="submit" value="Valider">
+                </form>
+            </div>
         </div>
     </div>
+    <a href="{{ url('/client') }}">Voir la liste</a>
+
+
     <script src="{{ asset('js/events.js') }}"></script>
     <script src="{{ asset('js/dark.js') }}"></script>
-    <script src="{{ asset('js/hover.js') }}"></script>
 </body>
 </html>

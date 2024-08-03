@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="{{ url('/client/create') }}">
                     <div class="card">
                         <div class="img">
@@ -169,7 +169,7 @@
                     </div>
                 </a>
             </div>
-            
+
 
             <div class="div-form">
                 <h4>Ajouter un pret</h4>
@@ -207,13 +207,14 @@
                     {{\Illuminate\Support\Facades\Auth::user()->id}}
                     " style="display: none;">
                     @endauth
-                    
+
                     <input type="submit" value="Enregistrer">
                 </form>
+                <a href="{{ url('/pret') }}">Voir la liste</a>
             </div>
         </div>
     </div>
-    <a href="{{ url('/pret') }}">Voir la liste</a>
+
 
     <script src="{{ asset('js/events.js') }}"></script>
     <script src="{{ asset('js/dark.js') }}"></script>

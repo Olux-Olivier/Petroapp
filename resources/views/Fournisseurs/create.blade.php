@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="{{ url('/client/create') }}">
                     <div class="card">
                         <div class="img">
@@ -131,7 +131,7 @@
                     </div>
                 </a>
 
-                
+
                 <a href="{{ url('/pret/create') }}">
                     <div class="card">
                         <div class="img">
@@ -166,7 +166,7 @@
                     </div>
                 </a>
             </div>
-            
+
 
             <div class="div-form">
                 <h4>Ajouter un fournisseur</h4>
@@ -178,7 +178,7 @@
 
                 <label for="">Email</label>
                 <input type="email" name="email">
-                
+
                 <label for="">Téléphone</label>
                 <input type="text" name="numerotel">
 
@@ -187,10 +187,11 @@
 
                 <input type="submit" value="Ajouter">
                 </form>
+                    <a href="{{ url('/fournisseur') }}">Voir la liste</a>
             </div>
         </div>
     </div>
-    <a href="{{ url('/fournisseur') }}">Voir la liste</a>
+
 
     <script src="{{ asset('js/events.js') }}"></script>
     <script src="{{ asset('js/dark.js') }}"></script>

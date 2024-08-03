@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="{{ url('/client/create') }}">
                     <div class="card">
                         <div class="img">
@@ -168,7 +168,7 @@
                     </div>
                 </a>
             </div>
-            
+
 
             <div class="div-form">
                 <h4>Ajouter un client</h4>
@@ -198,10 +198,10 @@
 
                     <input type="submit" value="Ajouter">
                 </form>
+                 <a href="{{ url('/client') }}">Voir la liste</a>
             </div>
         </div>
     </div>
-    <a href="{{ url('/client') }}">Voir la liste</a>
 
 
     <script src="{{ asset('js/events.js') }}"></script>

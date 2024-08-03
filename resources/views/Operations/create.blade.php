@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="{{ url('/client/create') }}">
                     <div class="card">
                         <div class="img">
@@ -169,7 +169,7 @@
                     </div>
                 </a>
             </div>
-            
+
 
             <div class="div-form">
                 <h4>Opération journalière</h4>
@@ -203,14 +203,15 @@
                         @endforeach
                     </select>
 
-                    
+
                     <input type="submit" value="Enregistrer">
                 </form>
+                <a href="{{ url('/operation') }}">Voir la liste</a>
             </div>
         </div>
     </div>
-    <a href="{{ url('/operation') }}">Voir la liste</a>
-    
+
+
     <script src="{{ asset('js/events.js') }}"></script>
     <script src="{{ asset('js/dark.js') }}"></script>
 </body>

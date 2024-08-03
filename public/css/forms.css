@@ -33,6 +33,7 @@ html body .container-form .aside-barre {
   padding-right: 1em;
   left: -25em;
   transition: all 0.3s ease-in-out;
+    /*overflow-y: scroll;*/
 }
 html body .container-form .aside-barre a {
   text-decoration: none;
@@ -108,6 +109,12 @@ html body .container-form .form-container .div-form form input {
   margin-bottom: 0.8em;
   border-radius: 3px;
   border: 1px solid rgb(173, 173, 173);
+}
+html body .container-form .form-container .div-form a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bolder;
+    color: #0f6674;
 }
 
 html body .container-form .form-container .div-form form select {

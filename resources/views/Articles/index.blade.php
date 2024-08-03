@@ -27,7 +27,7 @@
                 <tr>
                 <td>{{$article->id}}</td>
                 <td>{{$article->nom}}</td>
-                    
+
                 <td>
                     <a href="/article/{{$article->id}}/edit">Modifier</a>
                 </td>
@@ -43,7 +43,7 @@
             @endforeach
             </tbody>
         </table>
-        
+
     </div>
 
     <div>

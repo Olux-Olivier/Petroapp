@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html body .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+html body .container .div-options{
+    width: 15em;
+    height: 5em;
+}
+html body .container .div-options{
+    display:flex;
+    align-items: center;
+    grid-gap: 0.8em;
+
+}
+html body .container .div-options a{
+    text-decoration: none;
+
+}

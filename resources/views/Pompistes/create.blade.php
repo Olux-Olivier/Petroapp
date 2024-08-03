@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="{{ url('/client/create') }}">
                     <div class="card">
                         <div class="img">
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="{{ url('/gerant/taches') }}">
                     <div class="card">
                         <div class="img">
@@ -167,7 +167,7 @@
                     </div>
                 </a>
             </div>
-            
+
 
             <div class="div-form">
                 <h4>Ajouter un pompiste</h4>
@@ -177,13 +177,13 @@
                     <input type="text" name="nom" >
                     <label for="">Postnom</label>
                     <input type="text" name="postnom">
-                    
+
                     <label for="">Prénom</label>
                     <input type="text" name="prenom">
 
                     <label for="">Contact</label>
                     <input type="text" name="contact">
-                    
+
                     @auth
                     <input type="text" name="user_id" value="
                     {{\Illuminate\Support\Facades\Auth::user()->id}}
@@ -192,10 +192,11 @@
 
                     <input type="submit" value="Ajouter">
                 </form>
+                <a href="{{ url('/pompiste') }}">Voir la liste</a>
             </div>
         </div>
     </div>
-    <a href="{{ url('/pompiste') }}">Voir la liste</a>
+
 
 
     <script src="{{ asset('js/events.js') }}"></script>

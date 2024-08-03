@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/options.css') }}">
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
     <title>PetroApp | Ajouter fournisseur</title>
 </head>
 <body>
@@ -95,7 +97,7 @@
                     </div>
                 </a>
 
-                <a href="{{ url('/Commandes/create') }}">
+                <a href="{{ url('/cmdfournisseur/create') }}">
                     <div class="card">
                         <div class="img">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-box-seam" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">

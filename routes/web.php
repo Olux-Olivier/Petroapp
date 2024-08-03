@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\FournisseurController;
-use App\Http\Controllers\OperationController;
-use App\Http\Controllers\PompisteController;
-use App\Http\Controllers\CmdfournisseurController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\PretController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\PretController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PompisteController;
+use App\Http\Controllers\OperationController;
+use App\Http\Controllers\FournisseurController;
+use App\Http\Controllers\CmdfournisseurController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,7 +21,7 @@ Route::get('/', function () {
 Route::get('/login', function (){
     return view('Auth.login');
 })->name('auth.login');
-
+;
 
 Route::get('/gerant/taches', function (){
     return view('Gerants.taches');
@@ -81,7 +82,7 @@ Route::resource('pret', PretController::class)->names([
 
 Route::post('valide', [PretController::class, 'valide'])->name('pret.valide');
 
-
+Route::post('livre', [CmdfournisseurController::class, 'livre'])->name('cmdfournisseur.livre');
 
 ////////////////////////// NOS ROUTES
 
@@ -94,5 +95,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('mail', [MailController::class, 'sendmail']);
 
 require __DIR__.'/auth.php';

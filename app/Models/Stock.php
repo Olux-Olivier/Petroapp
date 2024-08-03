@@ -11,6 +11,7 @@ class Stock extends Model
 
     protected $fillable=[
         'qte',
+        'artilce_id',
         'nalerte',
     ];
 

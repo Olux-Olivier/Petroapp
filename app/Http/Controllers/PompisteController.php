@@ -47,15 +47,21 @@ class PompisteController extends Controller
      */
     public function edit(Pompiste $pompiste)
     {
-        //
+        return view('pompistes.edit',[
+            'pompiste' => $pompiste
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pompiste $pompiste)
+    public function update(PompisteRequest $request, Pompiste $pompiste)
     {
-        //
+        $pompiste->update($request->validated());
+        
+        return to_route('pompiste.index')->with([
+            'success' => 'Pompiste modifié avec succes!'
+        ]);
     }
 
     /**
@@ -63,6 +69,10 @@ class PompisteController extends Controller
      */
     public function destroy(Pompiste $pompiste)
     {
-        //
+        $pompiste->delete();
+        return to_route('pompiste.index')->with([
+            'success' => 'Pompiste supprimé avec succés'
+        ]);
+    
     }
 }

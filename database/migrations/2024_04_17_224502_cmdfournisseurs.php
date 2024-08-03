@@ -19,6 +19,7 @@ return new class extends Migration
             $table->float('prix');
             $table->string('email');
             $table->foreignId('fournisseur_id')->constrained()->cascadeOnDelete();
+            $table->string('etat');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });

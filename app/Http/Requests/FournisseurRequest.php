@@ -25,7 +25,7 @@ class FournisseurRequest extends FormRequest
         return [
             //
             'nom' => ['required','string','max:255'],
-            'email' => ['required','email', Rule::unique("clients")->ignore($this->route()->parameter("client"))],
+            'email' => ['required','email'],
             'numerotel' => ['required','string','max:10'],
             'adresse' => ['required', 'string','max:255'],
         ];

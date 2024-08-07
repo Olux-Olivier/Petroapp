@@ -26,7 +26,7 @@
 
         <div class="content">
             <div class="welcome">
-                <h4>Hello, Mr
+                <h4>Connectez en tant que 
                 @auth  
                 <span><Strong>{{\Illuminate\Support\Facades\Auth::user()->name}}</span></Strong>
                 @endauth
@@ -49,7 +49,7 @@
                         </div>
                         <div class="text">
                             <h4>Enregistrer un pompiste</h4>
-                            <p>Enregistrer un client particulier ou une personne morale.</p>
+                            <p>Enregistrer un pompiste employé de la station.</p>
                         </div>
                     </div>
                 </a>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="text">
                             <h4>Enregistrer un fournisseur</h4>
-                            <p>Enregistrer un client particulier ou une personne morale.</p>
+                            <p>Enregistrer un fournisseur habituel ou nouveau.</p>
                         </div>
                     </div>
                 </a>
@@ -102,7 +102,7 @@
                         </div>
                         <div class="text">
                             <h4>Enregistrer une operation</h4>
-                            <p>Enregistrer un client particulier ou une personne morale.</p>
+                            <p>Enregistrer le rapport d'un pompiste.</p>
                         </div>
                     </div>
                 </a>
@@ -121,7 +121,26 @@
                         </div>
                         <div class="text">
                             <h4>Passer une commande</h4>
-                            <p>Enregistrer un client particulier ou une personne morale.</p>
+                            <p>Passer commande au prés d'un fournisseur.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="{{ url('/pret/create') }}">
+                    <div class="card">
+                        <div class="img">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-box-seam" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M12 3l8 4.5v9l-8 4.5l-8 -4.5v-9l8 -4.5" />
+                            <path d="M12 12l8 -4.5" />
+                            <path d="M8.2 9.8l7.6 -4.6" />
+                            <path d="M12 12v9" />
+                            <path d="M12 12l-8 -4.5" />
+                            </svg>
+                        </div>
+                        <div class="text">
+                            <h4>Enregistrer pret</h4>
+                            <p>Enregistrer un pret pour particulier ou personne morale.</p>
                         </div>
                     </div>
                 </a>

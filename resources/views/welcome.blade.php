@@ -89,7 +89,7 @@
                                             </div>
                                             <div class="text">
                                                 <h4>Register</h4>
-                                                <p>Enregistrer un client particulier ou une personne morale.</p>
+                                                <p>Creation d'un compte pour un nouveau utilisateur.</p>
                                             </div>
                                         </div>
                                     </a>

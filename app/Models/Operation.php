@@ -15,6 +15,7 @@ class Operation extends Model
         'index_avant',
         'index_apres',
         'prix_unitaire',
+        'depense',
         'pompiste_id',
         'user_id'
     ];

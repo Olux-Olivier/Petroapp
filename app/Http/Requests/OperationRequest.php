@@ -27,6 +27,7 @@ class OperationRequest extends FormRequest
             'index_avant' => ['required','integer'],
             'index_apres' => ['required','integer'],
             'prix_unitaire' => ['required','integer'],
+            'depense' => ['required','integer'],
             'pompiste_id' => ['required','integer'],
             'user_id' => ['required','integer'],
         ];

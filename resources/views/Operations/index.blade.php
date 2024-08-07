@@ -26,6 +26,7 @@
                     <th>Qte-vendue</th>
                     <th>Prix unitaire</th>
                     <th>Prix Total</th>
+                    <th>Depense</th>
                     <th>Pompiste</th>
                 </tr>
             </thead>
@@ -46,6 +47,7 @@
                         $prix_total = $operation->prix_unitaire * $qte_vendue;
                     @endphp
                     <td>{{$prix_total}} CDF</td>
+                    <td>{{$operation->depense}} CDF</td>
                     <td>{{$operation->pompiste_id}}</td>
                     <td>
                         <a href="/operation/{{$operation->id}}/edit">Modifier</a>

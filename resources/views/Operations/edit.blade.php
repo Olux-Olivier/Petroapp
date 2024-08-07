@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
-    <title>PetroApp |Enregistrer une Operation</title>
+    <title>PetroApp |Modifier une Operation</title>
 </head>
 <body>
     <div class="container container-form">
@@ -172,11 +172,12 @@
 
 
             <div class="div-form">
-                <h4>Opération journalière</h4>
-                <form  method="post" action="/operation">
+                <h4>Modifier opération</h4>
+                <form  action="{{route('operation.update', $operation)}}" method='post'>
                     @csrf
+                    @method('put')
                     <label for="">Stock initial</label>
-                    <input type="number" name="stock_initial">
+                    <input type="number" name="stock_initial" value="{{$operation->stock_initial}}">
 
                     <label for="">Type article</label>
                     <select name="article_id">
@@ -186,18 +187,15 @@
                     </select>
 
                     <label for="">Index avant</label>
-                    <input type="number" name="index_avant">
+                    <input type="number" name="index_avant" value="{{$operation->index_avant}}">
 
 
                     <label for="">Index aprés</label>
-                    <input type="number" name="index_apres">
+                    <input type="number" name="index_apres" value="{{$operation->index_apres}}">
 
 
                     <label for="">Prix unitaire</label>
-                    <input type="number" name="prix_unitaire">
-
-                    <label for="">Depense</label>
-                    <input type="number" name="depense">
+                    <input type="number" name="prix_unitaire" value="{{$operation->prix_unitaire}}">
 
                     <label for="">Nom pompiste</label>
                     <select name="pompiste_id">

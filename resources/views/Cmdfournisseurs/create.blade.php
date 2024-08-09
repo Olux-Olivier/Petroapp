@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="{{ url('/client/create') }}">
                     <div class="card">
                         <div class="img">
@@ -91,7 +91,7 @@
                             <path d="M7 7h3v10h-3z" />
                             <path d="M14 7h3v6h-3z" />
                             </svg>
-                        </div> 
+                        </div>
                         <div class="text">
                             <h4>Enregistrer une operation</h4>
                         </div>
@@ -168,13 +168,13 @@
                     </div>
                 </a>
             </div>
-            
+
 
             <div class="div-form">
                 <h4>Passer une commande</h4>
                 <form  method="post" action="/cmdfournisseur">
                     @csrf
-                   
+
                     <label for="">Nom article</label>
                     <select name="article_id">
                         @foreach ($articles as $article)
@@ -213,12 +213,10 @@
 
                     <input type="submit" value="Valider">
                 </form>
+                <a href="{{ url('/cmdfournisseur') }}">Voir la liste</a>
             </div>
         </div>
     </div>
-    <a href="{{ url('/cmdfournisseur') }}">Voir la liste</a>
-
-
     <script src="{{ asset('js/events.js') }}"></script>
     <script src="{{ asset('js/dark.js') }}"></script>
 </body>

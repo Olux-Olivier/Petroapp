@@ -215,10 +215,11 @@
 
                     <input type="submit" value="Enregistrer">
                 </form>
+                    <a href="{{ url('/operation') }}">Voir la liste</a>
             </div>
         </div>
     </div>
-    <a href="{{ url('/operation') }}">Voir la liste</a>
+
 
     <script src="{{ asset('js/events.js') }}"></script>
     <script src="{{ asset('js/dark.js') }}"></script>
